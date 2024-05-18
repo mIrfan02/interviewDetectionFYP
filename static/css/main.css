@@ -1,0 +1,586 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400&family=Lobster+Two:wght@400;700&display=swap");
+
+body {
+  background-color: #1d1b57;
+  font-family: "Literata", serif;
+  font-family: "Lobster Two", sans-serif;
+}
+
+h2 {
+  color: white;
+
+  font-size: 3rem;
+  text-align: center;
+}
+
+p {
+  color: white;
+
+  text-align: center;
+}
+span {
+  color: #b28b7e;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-light .navbar-nav .nav-link::before,
+.navbar-light .navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  /* Adjust the height as per your requirements */
+  bottom: 0;
+  /* Positioning it at the bottom of the link */
+  background: #b28b7e;
+  /* Color of the line */
+  transition: 0.3s;
+  /* Animation transition */
+}
+
+.navbar-light .navbar-nav .nav-link::before {
+  left: 50%;
+}
+
+.navbar-light .navbar-nav .nav-link::after {
+  right: 50%;
+}
+
+.navbar-light .navbar-nav .nav-link:hover::before {
+  left: 0;
+  width: 50%;
+}
+
+.navbar-light .navbar-nav .nav-link:hover::after {
+  right: 0;
+  width: 50%;
+}
+.logo {
+  width: 8rem;
+  padding-top: 1rem;
+}
+.header-wrap {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.5s ease-in-out;
+}
+
+.hero_banner-inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8rem;
+}
+
+.hero_banner-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero_banner-inner img {
+  height: 100vh;
+  width: 50%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.model-wrap {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* a translucent black backdrop */
+  z-index: 9999; /* makes sure the modal is on top of other content */
+  transition: opacity 0.3s ease; /* this will fade in/out the modal */
+}
+
+.video-container {
+  width: 80%; /* reduce to 80% width */
+  height: 80vh; /* reduce to 80% of the viewport height */
+  margin: 10% auto; /* centering */
+  background-color: #fff; /* optional, for visibility against the backdrop */
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px; /* you can adjust size as required */
+  color: #b28b7e; /* or any other color that makes it visible against your video */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* optional background for better visibility */
+  border-radius: 50%; /* makes it circular */
+  padding: 5px;
+}
+
+.banner-content {
+  position: absolute;
+  top: 28%;
+  right: 9%;
+  z-index: 10;
+}
+
+.banner-content p {
+  padding-top: 3.5rem;
+  padding-left: 10rem;
+  color: white;
+  font-family: "Literata", serif;
+}
+.banner-content .butt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.hero_banner-inner .img {
+  width: 30rem;
+}
+.hero_banner-inner h2 {
+  /* padding-top: 3rem; */
+  color: white;
+  padding-left: 10rem;
+  font-size: 3rem;
+  text-align: center;
+}
+.banner-content span {
+  color: #b28b7e;
+}
+
+.hero_banner-inner img {
+  width: 50%;
+  height: 80vh;
+  border-radius: 40px 0 40px 0;
+}
+
+.about_us-inner .content {
+  color: white;
+  text-align: left;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.about_us-inner span {
+  color: #b28b7e;
+}
+.about_us-inner p {
+  font-family: "Literata", serif;
+}
+
+.about_us-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.about_us-wrap h2 {
+  padding-top: 3rem;
+}
+
+.btn {
+  background-color: #1c1b55;
+  box-shadow: 1px 1px 10px #b28b7e;
+  border-radius: 10px;
+  color: #b28b7e;
+}
+.btn:hover {
+  color: white;
+}
+
+.fa-arrow-right {
+  padding-left: 10px;
+}
+
+.about_us-wrap img {
+  width: 25rem;
+  border-radius: 4px;
+  box-shadow: 2px 2px 80px #b28b7e;
+}
+
+.about_us-wrap .content {
+  width: 50%;
+}
+
+.about_us-wrap {
+  padding-bottom: 3rem;
+}
+
+.services-wrap {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+.card {
+  background-color: #1c1b55;
+  box-shadow: 1px 1px 10px #b28b7e;
+  color: white;
+}
+
+.card p {
+  font-family: "Literata", serif;
+}
+.card h5 {
+  text-align: center;
+  position: relative;
+}
+
+.card h5::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  z-index: 10;
+  left: 32%;
+  /* transform: translateX(201%); */
+  width: 68px;
+  height: 3px;
+  background-color: #b28b7e;
+}
+
+.services-wrap {
+  padding-bottom: 4rem;
+}
+
+.card {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #b28b7e;
+  transition: height 0.3s ease;
+}
+.card p {
+  position: relative;
+  z-index: 10;
+}
+
+.card:hover {
+  background-color: #b28b7e;
+  color: white;
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+.feedback-wrap p {
+  text-align: center;
+  color: white;
+  font-family: "Literata", serif;
+}
+.feedback-wrap {
+  padding-bottom: 4rem;
+}
+
+.feedback-wrap .para {
+  padding-bottom: 4rem;
+}
+.about_us-wrap .para {
+  text-align: center;
+  color: white;
+  font-family: "Literata", serif;
+  padding-bottom: 5rem;
+}
+.para {
+  text-align: center;
+  color: white;
+  font-family: "Literata", serif;
+  padding-bottom: 5rem;
+}
+
+.services-wrap .para {
+  text-align: center;
+  color: white;
+  font-family: "Literata", serif;
+  padding-bottom: 3rem;
+}
+
+.feedback-inner .card img {
+  border-radius: 125px;
+  position: relative;
+  left: 0rem;
+  top: 1rem;
+  z-index: 10;
+}
+h3 {
+  font-size: 0.9rem;
+}
+.feedback-inner .card-text {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.stars {
+  display: flex;
+}
+.fa-star {
+  padding-left: 10px;
+  color: yellow;
+}
+
+.feedback-inner .card {
+  background-color: #b28b7e;
+}
+.feedback-inner .card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #1c1b55;
+  transition: height 0.3s ease;
+}
+
+.feedback-inner .card p {
+  position: relative;
+  z-index: 10;
+}
+
+.feedback-inner .card:hover {
+  background-color: #1c1b55;
+  color: white;
+}
+
+.feedback-inner .card:hover::before {
+  height: 100%;
+}
+
+.feedback-inner .card-text small {
+  text-align: left;
+  color: #1c1b55;
+  font-size: 1rem;
+}
+.feedback-inner .card-body h5 span {
+  color: #1c1b55;
+}
+.feedback-inner .card:hover .card-text small {
+  color: #b28b7e;
+}
+
+.feedback-inner .card:hover .card-body h5 span {
+  color: #b28b7e;
+}
+
+.feedback-inner .carousel-inner {
+  box-shadow: 2px 2px 70px #b28b7e;
+}
+.scrolled {
+  padding: 0.1rem 0;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: #1c1b55;
+}
+
+.carousel-indicators {
+  bottom: -64px;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1em);
+  transition: all 0.3s;
+}
+.word .int {
+  color: white;
+}
+
+.footer-wrap {
+  padding-top: 6rem;
+}
+
+.footer-inner .cntnt {
+  color: white;
+  text-align: center;
+}
+.footer-inner .cntnt h3 {
+  color: white;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+.footer-inner .cntnt p {
+  font-family: "Literata", serif;
+  color: #b28b7e;
+  padding-top: 0.5rem;
+}
+.footer-inner .cntnt button {
+  background-color: #b28b7e;
+  color: #1c1b55;
+  padding-top: 0.5rem;
+}
+
+.form-control::placeholder {
+  font-family: "Literata", serif;
+}
+
+.links .fa {
+  color: #b28b7e;
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.footer-inner {
+  box-shadow: 1px 1px 10px #b28b7e;
+}
+
+.about_us-inner {
+  box-shadow: 1px 1px 10px #b28b7e;
+}
+
+.video-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  /* adjust as required */
+  color: white;
+  /* adjust as required */
+  cursor: pointer;
+}
+
+.video-container {
+  box-shadow: 1px 1px 10px #b28b7e;
+  margin-bottom: 5rem;
+  background-color: grey;
+}
+
+span {
+  letter-spacing: -3px;
+}
+.word {
+  padding-left: 20px;
+}
+
+.hero_banner-wrap {
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero_banner-inner {
+  height: 600px; /* Adjust height as per your need */
+  background: linear-gradient(to right, transparent 50%, #2d1689 63%),
+    url("../imgs/Capture.PNG");
+  /* background-size: 50% 100%, cover; */
+  background-repeat: no-repeat;
+  background-position: left center, left center;
+  border-radius: 20px; /* This will give rounded corners to the entire element */
+  box-shadow: 1px 1px 10px #b28b7e;
+}
+
+.hero_banner-inner img {
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px #b28b7e;
+}
+
+.banner-content h2 {
+  top: 0;
+  bottom: 0;
+  color: #fff;
+}
+.navbar {
+  height: 4rem;
+}
+@media (max-width: 856px) {
+  .about_us-inner .content {
+    /* color: white; */
+    text-align: center;
+  }
+
+  .about_us-wrap .content {
+    width: 100%;
+  }
+
+  .about_us-wrap .content button {
+    margin-bottom: 2rem;
+  }
+
+  .about_us-wrap img {
+    width: 100%;
+  }
+}
+@media (max-width: 886px) {
+  .all {
+    flex-direction: column;
+  }
+  .footer-inner .input {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .col img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 767px) {
+  .feedback-inner .card img {
+    left: 30%;
+  }
+}
+
+@media (max-width: 575px) {
+  .feedback-inner .card img {
+    left: 16%;
+  }
+}
+
+@media (max-width: 320px) {
+  .feedback-inner .card img {
+    left: 13%;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    height: 100%;
+  }
+  .navbar-toggler {
+    background-color: #b28b7e;
+  }
+
+  .logo {
+    width: 4rem;
+    padding-top: 0rem;
+  }
+}

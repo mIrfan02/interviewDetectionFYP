@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop File Upload</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #drop-area.highlight {
+            border-color: #007bff;
+        }
+        #file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <div id="drop-area" class="mb-3">
+                <h3>Drag & Drop Files Here</h3>
+                <p>or</p>
+                <input type="file" id="file-input" accept=".mp3, .wav, .ogg">
+                <p>Click to select files</p>
+            </div>
+            <div id="file-list"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to prevent default drag behaviors
+    function preventDefaultBehavior(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // Highlight drop area when file is dragged over it
+    function highlightDropArea() {
+        $('#drop-area').addClass('highlight');
+    }
+
+    // Unhighlight drop area when file is dragged out of it
+    function unhighlightDropArea() {
+        $('#drop-area').removeClass('highlight');
+    }
+
+    // Handle file drop
+    function handleDrop(e) {
+        unhighlightDropArea();
+        const files = e.originalEvent.dataTransfer.files;
+        handleFiles(files);
+    }
+
+    // Handle file selection from file input
+    function handleFileSelection(e) {
+        const files = e.target.files;
+        handleFiles(files);
+    }
+
+    // Handle selected files
+    function handleFiles(files) {
+        $('#file-list').empty(); // Clear previous file list
+        for (const file of files) {
+            $('#file-list').append(`<div>${file.name} - ${file.size} bytes</div>`);
+        }
+    }
+
+    $(document).ready(function() {
+        // Prevent default drag behaviors
+        $(document).on('drag dragstart dragend dragover dragenter dragleave drop', '#drop-area', preventDefaultBehavior);
+        // Highlight drop area when file is dragged over it
+        $(document).on('dragover dragenter', '#drop-area', highlightDropArea);
+        // Unhighlight drop area when file is dragged out of it
+        $(document).on('dragleave dragend drop', '#drop-area', unhighlightDropArea);
+        // Handle file drop
+        $(document).on('drop', '#drop-area', handleDrop);
+        // Handle file selection from file input
+        $(document).on('change', '#file-input', handleFileSelection);
+    });
+</script>
+
+</body>
+</html>

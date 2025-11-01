@@ -4,8 +4,10 @@ import google.generativeai as genai
 import torch
 import json
 from transformers import T5Tokenizer, T5ForConditionalGeneration, T5Config
-# api_key="AIzaSyDdtCaxH8nJg8cX5voUXxM5hqmC1Lj09Ok"
-api_key="AIzaSyD-YBZuwzO5RfJJPavYSsI-mMF5gI45yvI"
+api_key="AIzaSyDdtCaxH8nJg8cX5voUXxM5hqmC1Lj09Ok"
+
+# api_key="AIzaSyD-YBZuwzO5RfJJPavYSsI-mMF5gI45yvI"
+# api_key="AIzaSyCEemJOul6EUWgsqSZXFT8gGaGgIKkNX4o"
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-pro")
 

@@ -20,6 +20,7 @@ from datetime import date
 from flask_bcrypt import Bcrypt
 from flask_bcrypt import check_password_hash
 import pickle
+import json
 
 
 
@@ -279,45 +280,35 @@ def most_same(emotion_list):
 
 def handle_history(user, history_data):
     print("--------------------------------- history ----------------------")
-    # print("history data : ", history_data)
+
     history = user.history
-    # print("history : ",history)
-    # print("history1 : ", type(history))
-    history= pickle.loads(history)
-    print("HIsotry :",history)
-    # print("history2: ", history2)
-    print("--------------------------------- history ----------------------")
-    # if history is None:
-    #     history = {}
-    #     print("if None")
-    if len(history.keys()) > 0:
-        # if str(date.today()) in history.keys():
-        if str(date.today()) in history.keys():
-            print("before history append")
-            print(history[str(date.today())])
-            history[str(date.today())].append(history_data)
-            print("history if ")
-            print("after history append")
-            print(history[str(date.today())])
+    # Try to load history as pickle
+    try:
+        history = pickle.loads(history)
+        print("Loaded history as pickle.")
+    except (pickle.UnpicklingError, TypeError):
+        print("Failed to load history as pickle, initializing new history.")
+        history = {}
 
-        else:
-            history[str(date.today())] = [history_data]
-            print("history else")
+    # Update history with new data
+    today_str = str(date.today())
+    if today_str in history:
+        history[today_str].append(history_data)
+        print(f"Appended to today's history: {history[today_str]}")
     else:
-        print("else2")
-        # print("history[str(date.today())]  : ", history[str(date.today())])
-        # print("historydata2:", history_data)
-        history[str(date.today())] = [history_data]
-        print("history[str(date.today())]  : ", history[str(date.today())])
-        print("historydata2:", history_data)
+        history[today_str] = [history_data]
+        print(f"Created new entry for today: {history[today_str]}")
 
+    # Serialize the updated history back to pickle
     user.history = pickle.dumps(history)
-    print("Hiroty of user ------------------------------")
-    print("user1 :", user.history)
-    # db.session.add(user)
+    print("Updated user history.")
+
+    # Save changes to the database
+    db.session.add(user)
     db.session.commit()
 
-
+    print("History updated and committed to the database.")
+    print("--------------------------------- history ----------------------")
 
 
 
